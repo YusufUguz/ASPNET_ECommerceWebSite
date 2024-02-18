@@ -1,0 +1,2 @@
+*.less linguist-language=C#
+*.scss linguist-language=C#
