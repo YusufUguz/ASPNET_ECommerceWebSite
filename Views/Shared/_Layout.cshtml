@@ -1,0 +1,218 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="~/images/etemizlik.png" type="image/x-icon">
+
+    <title>
+        E-Temizlik
+    </title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    @*<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />*@
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    @*<link href="css/style.css" rel="stylesheet" />*@
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+    <!-- responsive style -->
+    @*<link href="css/responsive.css" rel="stylesheet" />*@
+    <link href="~/assets/css/responsive.css" rel="stylesheet" />
+</head>
+
+
+
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        
+        <!-- end header section -->
+        <main>
+            @RenderBody()
+        </main>
+        <!-- info section -->
+
+        <section id="info" class="info_section  layout_padding2-top">
+            <div class="social_container">
+                <div class="social_box">
+                    <a href="">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                     
+                </div>
+            </div>
+            <div class="info_container ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <h6>
+                                Hakkımızda
+                            </h6>
+                            <p>
+                                E-Temizlik,belirli bir yeri temizletmek isteyen müşterilere hızlı,kaliteli ve uygun fiyatlı temizlik hizmeti sunmayı amaçlar.
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="info_form ">
+                                <h5>
+                                    Bülten
+                                </h5>
+                                <form action="#">
+                                    <input type="email" placeholder="E-mail Giriniz">
+                                    <button>
+                                        Abone Ol
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <h6>
+                                İletişime Geçin
+                            </h6>
+                            <div class="info_link-box">
+                                <a href="">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span> Çiftlikköy Mah. Üni Cad. No:1 Yenişehir/Mersin </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>+90 555 555 55 55</span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span> etemizlik@gmail.com</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer section -->
+            <footer class=" footer_section">
+                <div class="container">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+                        <a href="https://html.design/">E-Temizlik</a>
+                    </p>
+                </div>
+            </footer>
+            <!-- footer section -->
+        </section>
+
+
+        <!-- end slider section -->
+    </div>
+    <!-- end hero area -->
+    <!-- shop section -->
+    <!-- end info section -->
+    @*<script src="js/jquery-3.4.1.min.js"></script>*@
+    <script src="~/assets/js/jquery-3.4.1.min.js"></script>
+    @*<script src="js/bootstrap.js"></script>*@
+    <script src="~/assets/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    @*<script src="js/custom.js"></script>*@
+    <script src="~/assets/js/custom.js"></script>
+
+    @* <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyAa8tRZGHqi08QCvtLNKJbYVvO4EaaANtg",
+    authDomain: "ecommercewebsite-60585.firebaseapp.com",
+    projectId: "ecommercewebsite-60585",
+    storageBucket: "ecommercewebsite-60585.appspot.com",
+    messagingSenderId: "995666359039",
+    appId: "1:995666359039:web:f33e93555ad396d1f752ca"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js"></script>*@
+
+</body>
+
+</html>
+
+
+
+@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AuthUse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AuthUse.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AuthUse</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - AuthUse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+*@

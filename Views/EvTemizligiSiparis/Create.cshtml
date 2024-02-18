@@ -1,0 +1,237 @@
+﻿@model ETemizlik.Models.EvTemizligiSipari
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+@using Microsoft.AspNetCore.Identity
+@using ETemizlik.Areas.Identity.Data
+
+@inject SignInManager<AuthUseUser> SignInManager
+@inject UserManager<AuthUseUser> UserManager
+
+
+<style>
+    h4 {
+        text-align: center;
+    }
+</style>
+
+<br />
+<h4>Ev Temizliği İçin Sipariş Oluştur</h4>
+<hr />
+<form asp-action="Create">
+ <div class="row">
+    <div class="col-md-6">
+        @*<form asp-action="Create">*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SehirId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.SehirId,ViewBag.ListofSehir as SelectList,"İl Seçiniz",new {@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label asp-for="IlceId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.IlceId,new SelectList(""),"İlçe Seçiniz",new {@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label asp-for="KacKatli" class="control-label"></label>
+                <select asp-for="KacKatli" class="form-control" asp-items="ViewBag.KacKatli"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="KacOdali" class="control-label"></label>
+                <select asp-for="KacOdali" class="form-control" asp-items="ViewBag.KacOdali"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarih" class="control-label"></label>
+                <input asp-for="Tarih" class="form-control" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaatId" class="control-label"></label>
+                <select asp-for="SaatId" class="form-control" asp-items="ViewBag.SaatId"></select>
+            </div>
+            @*@if (SignInManager.IsSignedIn(User))
+            {
+            <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity"  title="Manage">Hello @UserManager.GetUserId(User)! </a>
+            </li>}*@
+            @* <div class="form-group">
+            <label asp-for="UserId" class="control-label"></label>
+            <select asp-for="UserId" class ="form-control" asp-items="@UserManager.GetUserId(User)!"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" type="text" onkeypress="return isNumberKey(event)" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="CartAmount" class="control-label"></label>
+            <input asp-for="CartAmount" class="form-control" />
+            <span asp-validation-for="CartAmount" class="text-danger"></span>
+            </div>*@
+           
+       
+ </div>   
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="CartAmount" class="control-label">Sepet</label>
+            <span asp-for="CartAmount" id="maliyetDisplay" class="form-control" readonly>0</span>
+        </div>
+        <div class="payment-container">
+            <h2>Ödeme Bilgileri</h2>
+
+            <div class="form-group">
+                <label for="cardholder">Kart Sahibinin Adı:</label>
+                    <input type="text" id="cardholder" name="cardholder" placeholder="Yusuf Uğuz" pattern="^[a-zA-ZüÜğĞşŞıİöÖçÇ\s]+$" required>
+            </div>
+            <div class="form-group">
+                <label for="cardnumber">Kart Numarası:</label>
+                    <input type="text" id="cardnumber" name="cardnumber" placeholder="1111 1111 1111 1111" oninput="formatCardNumber(this)" pattern="^[0-9\s]{19}$" required>
+            </div>
+            <div class="expiry-cvv-container">
+                <div class="form-group">
+                    <label for="expiry">SKT:</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YYYY" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" pattern="^[0-9]{3}$" required>
+                </div>
+            </div>
+        </div>
+        <br />
+            <div class="form-group">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <input type="submit" value="Ödeme Yap ve Siparişi Oluştur" class="btn btn-outline-dark" />
+                }
+                else
+                {
+                    <h4> Sipariş Oluşturabilmek İçin Giriş Yapmalısınız </h4>
+                    <a class="btn btn-outline-dark nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">
+                        <i aria-hidden="true"></i>Giriş Yap
+                    </a>
+                }
+            </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+</form>
+
+<!-- ... your existing scripts ... -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#SehirId').change(function () {
+            var id = $('#SehirId').val();
+            $.ajax({
+                url: "@Url.Action("GetSehirilce","EvTemizligiSiparis")",
+                data: { SehirId: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#IlceId').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#IlceId').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#KacKatli, #KacOdali').change(function () {
+            updateMaliyet();
+        });
+
+        // Intercept form submission
+        $('form').submit(function (e) {
+            // Check cart amount
+            if ($('#maliyetDisplay').text() == "0") {
+                e.preventDefault(); // Prevent the form from being submitted
+                alert("Sepetinizde ürün bulunmamaktadır. Lütfen ürün ekleyin.");
+            }
+
+            // Check if PhoneNumber and Address are empty
+            var phoneNumber = $('#PhoneNumber').val();
+            var address = $('#Address').val();
+
+            if (phoneNumber.trim() === '' || address.trim() === '') {
+                e.preventDefault(); // Prevent the form from being submitted
+                alert("Lütfen telefon numarası ve adresi giriniz.");
+            }
+
+            // Check if Tarih, SehirId, and IlceId are selected
+            var tarih = $('#Tarih').val();
+            var sehirId = $('#SehirId').val();
+            var ilceId = $('#IlceId').val();
+
+            if (tarih.trim() === '' || sehirId === '' || ilceId === '') {
+                e.preventDefault(); // Prevent the form from being submitted
+                alert("Lütfen tarih, şehir ve ilçe seçiniz.");
+            }
+        });
+    });
+
+    function updateMaliyet() {
+        var kacKatli = $('#KacKatli').val();
+        var kacOdali = $('#KacOdali').val();
+        $.ajax({
+            url: "@Url.Action("GetMaliyet", "EvTemizligiSiparis")",
+            data: { KacKatli: kacKatli, KacOdali: kacOdali },
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                $('#maliyetDisplay').text(data.maliyet);
+
+                // Display warning if cart amount is 0
+                if (data.maliyet === 0) {
+                    $('#maliyetDisplay').css('color', 'red');
+                    $('#maliyetDisplay').next('.text-danger').remove(); // Remove previous warnings
+                    $('#maliyetDisplay').after("<span class='text-danger'>Sepetinizde ürün bulunmamaktadır.</span>");
+                } else {
+                    // Reset styles and remove previous warnings
+                    $('#maliyetDisplay').css('color', '');
+                    $('#maliyetDisplay').next('.text-danger').remove();
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<script>
+    function formatCardNumber(input) {
+        // Kart numarasındaki boşlukları temizle
+        var cardNumber = input.value.replace(/\s/g, '');
+
+        // Her 4 haneli sayıdan sonra boşluk ekleyin
+        cardNumber = cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+        // Sonuçları input'a yazın
+        input.value = cardNumber;
+    }
+</script>

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<ETemizlik.Models.BosEvTemizligiSipari>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Home/SiparislerimLayout.cshtml";
+}
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    #list thead {
+        background-color: #455884; /* Arka plan rengi - Bootstrap'un dark rengi */
+        color: #ffffff; /* Yazı rengi - Beyaz */
+    }
+
+    #list {
+        border-collapse: collapse;
+    }
+
+        #list thead th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        #list thead th:last-child {
+            border-top-right-radius: 10px;
+        }
+</style>
+
+
+<h1>Boş Ev Siparişlerim</h1>
+
+<p class="text-center">
+    <a class="btn btn-outline-dark align-content-center" asp-action="Create">Yeni Sipariş Oluştur</a>
+</p>
+<table class="table table-striped" id="list">
+    <thead>
+        <tr>
+            <th>
+                Tarih
+            </th>
+            <th>
+                Saat
+            </th>
+            <th>
+                Kat Sayısı
+            </th>
+            <th>
+                Oda Sayısı
+            </th>
+            <th>
+                Telefon Numarası
+            </th>
+            <th>
+                Adres
+            </th>
+            <th>
+                İlçe
+            </th>
+            <th>
+                İl
+            </th>
+            <th>
+                Ödenen Tutar
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.User)
+            </th>*@
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Tarih)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Saat.RandevuSaat1)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.KacKatliNavigation.KatBilgisi1)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.KacOdaliNavigation.OdaBilgisi1)
+                </td>
+
+
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Ilce.IlceAd)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.Sehir.SehirAd)
+                </td>
+                <td style="text-align: center; vertical-align: middle">
+                    @Html.DisplayFor(modelItem => item.CartAmount)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.User.Id)
+            </td>*@
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.EvTemizligiId">Edit</a> |*@
+                    <a asp-action="Details" class="btn btn-secondary" asp-route-id="@item.BosevTemizligiId">Sipariş Detayları</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.BosevTemizligiId">Siparişi İptal Et</a>
+                </td>
+            </tr>
+}
+    </tbody>
+</table>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+
+        js('#list').DataTable({
+
+        });
+
+
+    });</script>
+

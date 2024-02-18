@@ -1,0 +1,149 @@
+﻿@model ETemizlik.Models.EsyaTemizligiSipari
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .custom-heading {
+        font-size: 36px;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .details-section {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+        .details-section h4 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .details-section dl {
+            margin-bottom: 20px;
+        }
+
+        .details-section dt {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .details-section dd {
+            margin-bottom: 10px;
+        }
+
+        .details-section a {
+            margin-right: 10px;
+        }
+
+</style>
+
+<div class="details-section">
+    <h4>Eşya Temizliği Detayları</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Tarih
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+        <dt class="col-sm-2">
+            Saat
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Saat.RandevuSaat1)
+        </dd>
+        <dt class = "col-sm-2">
+            Adres
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            Telefon Numarası
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            Ödenen Tutar
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CartAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            Beyaz Eşya Sayısı
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BeyazEsyaSayisiNavigation.BeyazEsyaSayisi)
+        </dd>
+        <dt class = "col-sm-2">
+           Halı Sayısı
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HaliSayisiNavigation.HaliSayisi)
+        </dd>
+        <dt class="col-sm-2">
+            Yatak Sayısı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YatakSayisiNavigation.YatakSayisi)
+        </dd>
+        <dt class="col-sm-2">
+            Koltuk Sayısı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KoltukSayisiNavigation.KoltukSayisi)
+        </dd>
+        <dt class = "col-sm-2">
+           Teknolojik Alet Sayısı
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeknolojikAletSayisiNavigation.TaletSayisi)
+        </dd>
+        <dt class = "col-sm-2">
+           İlçe
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ilce.IlceAd)
+        </dd>
+       
+       
+        <dt class = "col-sm-2">
+           İl
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sehir.SehirAd)
+        </dd>
+        
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>*@
+       
+    </dl>
+</div>
+<div>
+   <br />
+    <a class="btn btn-info" asp-action="Index">Geri Dön</a>
+    
+</div>
+<br />

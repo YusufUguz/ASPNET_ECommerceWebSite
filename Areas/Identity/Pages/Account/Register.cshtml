@@ -1,0 +1,222 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+     Layout = "";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kayıt Ol</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    @*<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">*@
+    <link href="~/loginassets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    @*	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">*@
+    <link href="~/loginassets/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    @*	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">*@
+    <link href="~/loginassets/vendor/animate/animate.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    @*	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">*@
+    <link href="~/loginassets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    @*	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">*@
+    <link href="~/loginassets/vendor/select2/select2.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    @*	<link rel="stylesheet" type="text/css" href="css/util.css">*@
+    <link href="~/loginassets/css/util.css" rel="stylesheet" />
+    @*	<link rel="stylesheet" type="text/css" href="css/main.css">*@
+    <link href="~/loginassets/css/main.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+</head>
+<body>
+   
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/images/temizlikLogin.jpg" />
+                </div>
+                <form class="login100-form validate-form" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <span class="login100-form-title">
+                        E-Temizlik'e Kayıt Ol
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate="Valid ad soyad is required: Yusuf Uğuz">
+                         <input asp-for="Input.FirstName"  autocomplete="firstname" aria-required="true" placeholder="Adı" class="input100" />
+                        @*<input class="input100" type="text" name="Ad/Soyad" placeholder="Ad/Soyad">*@
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input asp-for="Input.LastName"  class="input100" autocomplete="lastname" aria-required="true" placeholder="Soyadı"  />
+                        @*<input class="input100" type="text" name="E-Mail" placeholder="E-Mail">*@
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" >
+                         <input asp-for="Input.Email" class="input100" autocomplete="username" aria-required="true" placeholder="E-Mail" />
+                        @*<input class="input100" type="text" name="Telefon Numarası" placeholder="Telefon Numarası">*@
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Şifre is required">
+                        @*<input class="input100" type="password" name="Sifre" placeholder="Şifre">*@
+                         <input asp-for="Input.Password"  class="input100" autocomplete="new-password" aria-required="true"placeholder="Şifre" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                      <div class="wrap-input100 validate-input" data-validate="Şifre is required">
+                           <input asp-for="Input.ConfirmPassword" class="input100" autocomplete="new-password" aria-required="true"placeholder="Şifre Tekrarı" />
+                        @*<input class="input100" type="password" name="Sifre" placeholder="Şifre">*@
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+
+                        <button id="registerSubmit" type="submit"  class="login100-form-btn">Kayıt Ol</button>
+                       @* <button class="login100-form-btn">
+                            Kayıt Ol
+                        </button>*@
+                    </div>
+                    <div class="text-center p-t-12">                       
+                        <a class="txt2" href="/Identity/Account/Login">
+                            Giriş Sayfasına Dön
+                        </a>
+                    </div>
+                    <div class="text-center p-t-15">
+                        <a href="\Home\Index">
+                            Anasayfaya Dön
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>                
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--===============================================================================================-->
+    @*	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>*@
+    <script src="~/loginassets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    @*<script src="vendor/bootstrap/js/popper.js"></script>*@
+    <script src="~/loginassets/vendor/bootstrap/js/popper.js"></script>
+    @*	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>*@
+    <script src="~/loginassets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    @*	<script src="vendor/select2/select2.min.js"></script>*@
+    <script src="~/loginassets/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    @*	<script src="vendor/tilt/tilt.jquery.min.js"></script>*@
+    <script src="~/loginassets/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <!--===============================================================================================-->
+    @*	<script src="js/main.js"></script>*@
+    <script src="~/loginassets/js/main.js"></script>
+
+</body>
+</html>
+
+@*@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-floating">
+                <input asp-for="Input.FirstName" class="form-control" autocomplete="firstname" aria-required="true" />
+                <label asp-for="Input.FirstName"></label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" aria-required="true" />
+                <label asp-for="Input.LastName"></label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}*@

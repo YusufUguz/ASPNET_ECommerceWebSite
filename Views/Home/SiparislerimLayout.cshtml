@@ -1,0 +1,209 @@
+﻿@{
+    ViewData["Title"] = "Siparislerim";
+
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="~/images/etemizlik.png" type="image/x-icon">
+
+    <title>
+        E-Temizlik
+    </title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    @*<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />*@
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    @*<link href="css/style.css" rel="stylesheet" />*@
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+    <!-- responsive style -->
+    @*<link href="css/responsive.css" rel="stylesheet" />*@
+    <link href="~/assets/css/responsive.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .button-bar {
+        display: flex;
+        justify-content: space-around;
+        background-color: #82a8cd;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 15px;
+    }
+
+    .clickable-area {
+        color: #fff;
+        text-decoration: none; /* Alt çizgiyi kaldır */
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        position: relative;
+    }
+
+    .clickable-area:hover {
+        background-color: #ffffff;
+        color: #000000;
+        text-decoration: none; /* Alt çizgiyi kaldır (hover durumunda da kaldır) */
+    }
+
+    .clickable-area i {
+        margin-right: 5px;
+    }
+</style>
+</head>
+<body>
+    <
+    <div class="d-flex justify-content-center">
+        <a class="navbar-brand" href="\Home\Index">
+            <span>
+                E-Temİzlİk
+            </span>
+        </a>
+    </div>
+    <div class="button-bar">
+        <a href="\EvTemizligiSiparis\Index" class="clickable-area"><i class="fa fa-house"></i> Ev Temizliği Siparişleri</a>
+        <a href="\EsyaTemizligiSiparis\Index" class="clickable-area"><i class="bx bx-calendar"></i> Eşya Temizliği Siparişleri</a>
+        <a href="\InsaatTemizligiSiparis\Index" class="clickable-area"><i class="bx bx-calendar"></i> İnşaat Temizliği Siparişleri</a>
+        <a href="\BosEvTemizligiSiparis\Index" class="clickable-area"><i class="bx bx-calendar"></i> Boş Ev Temizliği Siparişleri</a>
+    </div>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <!-- end header section -->
+        <main>
+            @RenderBody()
+        </main>
+        <!-- info section -->
+
+        <section class="info_section  layout_padding2-top">
+            <div class="social_container">
+                <div class="social_box">
+                    <a href="">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="info_container ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <h6>
+                                Hakkımızda
+                            </h6>
+                            <p>
+                                E-Temizlik,belirli bir yeri temizletmek isteyen müşterilere hızlı,kaliteli ve uygun fiyatlı temizlik hizmeti sunmayı amaçlar.
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="info_form ">
+                                <h5>
+                                    Bülten
+                                </h5>
+                                <form action="#">
+                                    <input type="email" placeholder="E-mail Giriniz">
+                                    <button>
+                                        Abone Ol
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <h6>
+                                İletişime Geçin
+                            </h6>
+                            <div class="info_link-box">
+                                <a href="">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span> Çiftlikköy Mah. Üni Cad. No:1 Yenişehir/Mersin </span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <span>+90 555 555 55 55</span>
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span> etemizlik@gmail.com</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer section -->
+            <footer class=" footer_section">
+                <div class="container">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+                        <a href="https://html.design/">E-Temizlik</a>
+                    </p>
+                </div>
+            </footer>
+            <!-- footer section -->
+        </section>
+
+
+        <!-- end slider section -->
+    </div>
+    <!-- end hero area -->
+    <!-- shop section -->
+    <!-- end info section -->
+    @*<script src="js/jquery-3.4.1.min.js"></script>*@
+    <script src="~/assets/js/jquery-3.4.1.min.js"></script>
+    @*<script src="js/bootstrap.js"></script>*@
+    <script src="~/assets/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    @*<script src="js/custom.js"></script>*@
+    <script src="~/assets/js/custom.js"></script>
+
+    @* <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyAa8tRZGHqi08QCvtLNKJbYVvO4EaaANtg",
+    authDomain: "ecommercewebsite-60585.firebaseapp.com",
+    projectId: "ecommercewebsite-60585",
+    storageBucket: "ecommercewebsite-60585.appspot.com",
+    messagingSenderId: "995666359039",
+    appId: "1:995666359039:web:f33e93555ad396d1f752ca"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js"></script>*@
+
+</body>
+
+</html>
+
