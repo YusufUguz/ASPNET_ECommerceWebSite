@@ -9,6 +9,8 @@ Features:<br />
 <br />
 :heavy_check_mark: Orders created from the order creation screen can be viewed as tables in the "my orders" menu that appears after logging in.<br />
 <br />
+:heavy_check_mark: MSSQL used for database and identity operations.<br />
+<br />
 
 Technologies:<br />
 :pushpin: ASPNET Core MVC <br />
